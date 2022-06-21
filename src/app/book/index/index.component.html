@@ -1,0 +1,63 @@
+<div class="container">
+    <h1>Book Reviews App</h1>
+  
+    <a href="#" routerLink="/book/create/" class="btn btn-success mb-4">Create New Book</a>
+
+	<form [formGroup]="form" (ngSubmit)="submit()">
+		<div class="input-group">
+			<input formControlName="search"
+				id="search"  type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+			<button type="submit" class="btn btn-outline-primary">Search</button>
+	  	</div>
+	</form>
+
+	<form [formGroup]="form" (ngSubmit)="submitFilter()">
+		<select formControlName="id" class="form-select mt-4" aria-label="Default select example">
+			<option selected>Choose one option</option>
+			<option value="1">By Date (oldest first)</option>
+			<option value="2">By Date (newest first)</option>
+			<option value="3">Popularity (highest)</option>
+		  </select>
+		  <button type="submit" class="btn btn-outline-primary mt-2">Sort by section</button>
+	</form>
+	
+    
+    <table class="table table-striped mt-4">
+    	<thead>
+	      	<tr>
+		        <th>ID</th>
+		        <th>Title</th>
+		        <th>Author</th>
+                <th>Description</th>
+		        <th>Review</th>
+                <th>Publishing date</th>
+		        <th>Grade</th>
+		        <th width="250px">Action</th>
+	      	</tr>
+	    </thead>
+      	<tbody>
+	      	<tr *ngFor="let book of books">
+		        <td>{{ book.id }}</td>
+		        <td>{{ book.title }}</td>
+		        <td>{{ book.author }}</td>
+                <td>{{ book.description }}</td>
+		        <td>{{ book.review }}</td>
+                <td>{{ book.published_at }}</td>
+		        <td>{{ book.grade }}</td>
+		        <td>
+					<div class="row">
+						<div class="col-md-3">
+							<a href="#" [routerLink]="['/book/', book.id, 'view']" class="btn btn-info">View</a>
+						</div>
+						<div class="col-md-3">
+							<a href="#" [routerLink]="['/book/', book.id, 'edit']" class="btn btn-primary">Edit</a>
+						</div>
+						<div class="col-md-3">
+							<button type="button" (click)="deleteBook(book.id)" class="btn btn-danger">Delete</button>
+						</div>
+					</div>
+				</td>
+	      	</tr>
+ 	   </tbody>
+    </table>
+ </div>

@@ -1,0 +1,38 @@
+<div class="container" style="background-color: aliceblue;">
+    <h1 class="mb-3 mt-3">Book - {{book.title}}</h1>
+  
+    <a href="#" routerLink="/book/index" class="btn btn-primary mb-5">Back</a>
+   
+    <div>
+        <strong>Author:</strong>
+        <p>{{ book.author }}</p>
+    </div>
+
+    <div>
+        <strong>Description:</strong>
+        <p>{{ book.description }}</p>
+    </div>
+   
+    <div>
+        <strong>Image:</strong>
+        <p>{{book.image}}</p>
+        
+        
+    </div>
+   
+    <div>
+        <strong>Review:</strong>
+        <p>{{ book.review }}</p>
+    </div>
+   
+    <div>
+        <strong>Publishing date:</strong>
+        <p>{{ book.published_at }}</p>
+    </div>
+   
+    <div>
+        <strong>Grade:</strong>
+        <p>{{ book.grade }}</p>
+    </div>
+   
+</div>
